@@ -10,6 +10,7 @@ import {
   removeCollaborator,
 } from "../services/board.service.js";
 import boardModel from "../models/boardModel.js";
+import { env } from "../config/env.js";
 
 // POST /api/boards
 export const createBoardController = async (req: Request, res: Response) => {
@@ -94,7 +95,11 @@ export const update = async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
-    const board = await updateBoard(req.params.boardId as string, req.body, userId);
+    const board = await updateBoard(
+      req.params.boardId as string,
+      req.body,
+      userId,
+    );
 
     res.status(200).json({
       success: true,
@@ -133,8 +138,6 @@ export const deleteById = async (
   }
 };
 
-
-
 // POST /api/boards/:boardId/invite
 export const createInviteController = async (
   req: Request,
@@ -152,8 +155,7 @@ export const createInviteController = async (
 
     const invite = await createBoardInvite(boardId, userId, role, expiresIn);
 
-    const clientUrl = process.env.CLIENT_URL || "http://localhost:5173";
-    const inviteUrl = `${clientUrl}/join/${invite.token}`;
+    const inviteUrl = `${env.CLIENT_URL}/join/${invite.token}`;
 
     res.status(200).json({
       success: true,

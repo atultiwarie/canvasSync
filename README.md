@@ -1,3 +1,4 @@
+# CanvaSync
 # CanvasSync
 
 > A real-time collaborative canvas app — draw, share, export, and analyze together.
@@ -117,6 +118,7 @@ Download the board in three formats — no server involved, all processed client
 
 | Format   | How it works                                                                                                                                                                                             |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **JSON** | Serializes the elements array with version metadata. Re-importable back into CanvaSync.                                                                                                                  |
 | **JSON** | Serializes the elements array with version metadata. Re-importable back into CanvasSync.                                                                                                                 |
 | **PNG**  | Offscreen `<canvas>` render at **2× pixel density** with a computed export camera — ignores current pan/zoom, auto-centers content with padding.                                                         |
 | **SVG**  | Each element converted to its SVG primitive (`<rect>`, `<ellipse>`, `<polyline>`, `<text>`) using world coordinates with a `viewBox`. Infinitely scalable — opens in Figma, Illustrator, or any browser. |
@@ -183,6 +185,7 @@ AISummaryDrawer: formatted markdown + action items
 ## Project Structure
 
 ```
+canvaSync/
 canvasSync/
 ├── backend/
 │   └── src/
@@ -216,6 +219,8 @@ canvasSync/
 
 ```bash
 # 1. Clone
+git clone https://github.com/your-username/canvaSync.git
+cd canvaSync
 git clone https://github.com/your-username/canvasSync.git
 cd canvasSync
 
@@ -235,6 +240,7 @@ npm run dev                 # http://localhost:5173
 
 ```env
 PORT=5000
+MONGO_URI=mongodb://localhost:27017/canvasync
 MONGO_URI=mongodb://localhost:27017/canvassync
 JWT_ACCESS_SECRET=your_jwt_access_secret
 JWT_REFRESH_SECRET=your_jwt_refresh_secret

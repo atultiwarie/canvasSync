@@ -131,6 +131,7 @@ export function importJSON(
 
         // Basic schema validation
         if (!raw || !Array.isArray(raw.elements)) {
+          throw new Error("Invalid CanvaSync file — missing elements array.");
           throw new Error("Invalid CanvasSync file — missing elements array.");
         }
 

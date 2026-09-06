@@ -37,9 +37,13 @@ export const useAuthStore = create<AuthState>()(
         set({ accessToken: null, user: null, isAuthenticated: false }),
     }),
     {
+      name: "canvasync-auth",
+     
       name: "canvassync-auth",
 
       partialize: (state) => ({ user: state.user }),
+    }
+  )
     },
   ),
 );
