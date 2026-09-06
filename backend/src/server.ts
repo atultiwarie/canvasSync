@@ -11,7 +11,7 @@ const httpServer = createServer(app);
 
 const io = new SocketIOServer(httpServer, {
   cors: {
-    origin: [env.CLIENT_URL],
+    origin: true,
     credentials: true,
   },
 });
