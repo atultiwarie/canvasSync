@@ -155,7 +155,8 @@ export const createInviteController = async (
 
     const invite = await createBoardInvite(boardId, userId, role, expiresIn);
 
-    const inviteUrl = `${env.CLIENT_URL}/join/${invite.token}`;
+    // const inviteUrl = `${env.CLIENT_URL}/join/${invite.token}`;
+    const inviteUrl = `${req.protocol}://${req.get("host")}/join/${invite.token}`;
 
     res.status(200).json({
       success: true,
