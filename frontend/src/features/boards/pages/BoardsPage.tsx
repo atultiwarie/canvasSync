@@ -346,8 +346,7 @@ export default function BoardsPage() {
               </svg>
             </div>
             <span className="text-base font-bold tracking-tight text-slate-900">
-              CanvaSync
-              CanvasSync
+              CanvaSync CanvasSync
             </span>
           </div>
 
