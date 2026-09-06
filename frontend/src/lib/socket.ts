@@ -1,7 +1,6 @@
 import { io, type Socket } from "socket.io-client";
 import { useAuthStore } from "../features/auth/auth.store";
-
-const BASE_URL = import.meta.env.VITE_API_URL ?? "http://localhost:5000";
+import { API_BASE_URL } from "./config";
 
 let socket: Socket | null = null;
 
@@ -10,7 +9,7 @@ export function getSocket(): Socket {
 
   const token = useAuthStore.getState().accessToken;
 
-  socket = io(BASE_URL, {
+  socket = io(API_BASE_URL, {
     auth: { token },
     autoConnect: true,
     reconnectionAttempts: 5,
