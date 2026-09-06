@@ -14,7 +14,7 @@ import boardRoutes from "./routes/board.routes.js";
 // middlewares
 app.use(
   cors({
-    origin: [env.CLIENT_URL],
+    origin: true,
     credentials: true,
   }),
 );

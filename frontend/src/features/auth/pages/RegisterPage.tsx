@@ -59,28 +59,6 @@ export default function RegisterPage() {
     }
   };
 
-  // Password strength: 0–4
-  const strength = (() => {
-    const p = form.password;
-    if (!p) return 0;
-    let s = 0;
-    if (p.length >= 8) s++;
-    if (/[A-Z]/.test(p)) s++;
-    if (/[0-9]/.test(p)) s++;
-    if (/[^A-Za-z0-9]/.test(p)) s++;
-    return s;
-  })();
-
-  const strengthColor = [
-    "",
-    "bg-red-400",
-    "bg-orange-400",
-    "bg-yellow-400",
-    "bg-green-500",
-  ][strength];
-
-  const strengthLabel = ["", "Weak", "Fair", "Good", "Strong"][strength];
-
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-50 px-4">
       <div className="w-full max-w-sm">
@@ -181,25 +159,6 @@ export default function RegisterPage() {
                 placeholder="Min. 8 characters"
                 className="rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder-slate-400 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10 disabled:opacity-50"
               />
-
-              {/* Strength bar */}
-              {form.password && (
-                <div className="flex items-center gap-2 pt-0.5">
-                  <div className="flex flex-1 gap-1">
-                    {[1, 2, 3, 4].map((i) => (
-                      <div
-                        key={i}
-                        className={`h-1 flex-1 rounded-full transition-colors ${
-                          i <= strength ? strengthColor : "bg-slate-200"
-                        }`}
-                      />
-                    ))}
-                  </div>
-                  <span className="min-w-10 text-right text-xs text-slate-500">
-                    {strengthLabel}
-                  </span>
-                </div>
-              )}
             </div>
 
             {/* Confirm password */}
