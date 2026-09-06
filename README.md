@@ -1,4 +1,3 @@
-# CanvaSync
 # CanvasSync
 
 > A real-time collaborative canvas app — draw, share, export, and analyze together.
