@@ -8,7 +8,7 @@ Built end-to-end with a custom Canvas 2D rendering engine (no third-party drawin
 
 ## ✦ Live Demo
 
-> _Add your deployed URL here_
+> https://canvassync.atultiwari.me
 
 ---
 
